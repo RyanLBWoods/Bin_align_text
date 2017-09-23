@@ -24,6 +24,7 @@ public class GetText {
 				context[i] = content.get(i);
 			}
 			
+			bfr.close();
 			return context;
 			
 		} catch (FileNotFoundException e){
