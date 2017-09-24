@@ -15,6 +15,7 @@ public class GetText {
 			ArrayList<String> content = new ArrayList<String>();
 			String p = null;
 			while((p = bfr.readLine()) != null){
+//				System.out.println(p + "\n");
 				content.add(p);
 			}
 			
@@ -22,6 +23,7 @@ public class GetText {
 			
 			for(int i = 0; i < content.size(); i++){
 				context[i] = content.get(i);
+//				System.out.println(context[i]);
 			}
 			
 			bfr.close();
@@ -36,7 +38,7 @@ public class GetText {
 		
 		String[] context = new String[1];
 		context[0] = "";
-		return null;
+		return context;
 		
 	}
 }
