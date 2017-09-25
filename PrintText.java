@@ -7,7 +7,7 @@ public class PrintText {
 		int remain = column;
 		int j = 0;
 		
-		String line = null;
+		String line = new String();
 		String[] lines = new String[1000];
 		
 
@@ -27,9 +27,18 @@ public class PrintText {
 			}
 		}
 		
-		lines[j] = line;
-		for(int k = 0; k < lines.length; k++){
-			System.out.print(lines[k]);
+		lines[j] = line + " ";
+		
+		StringBuffer spaces = new StringBuffer();
+		int k = 0;
+		while(lines[k] != null){
+			int b = column - lines[k].length();
+			for(int a = 0;a <= b; a++){
+				spaces.append(" ");
+			}
+			System.out.print(spaces.toString() + lines[k] + "\b");
+			spaces = new StringBuffer();
+			k++;
 		}
 		System.out.println();
 	}

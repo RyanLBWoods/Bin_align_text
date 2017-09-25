@@ -17,9 +17,11 @@ public class SpiltText {
 	
 			//Put words into a string array with a space followed.
 			String[] words = new String[wordList.size()];
-			for(int j = 0;j < wordList.size();j++){
+			int j = 0;
+			for(;j < wordList.size();j++){
 				words[j] = wordList.get(j) + " ";
 			}
+//			System.out.println(words[j - 1] + words[j - 1].length());
 			
 //			for(int k = 0;k < words.length;k++){
 //				System.out.println(words[k] + words[k].length());
