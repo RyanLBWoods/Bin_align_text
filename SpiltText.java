@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 public class SpiltText {
 	
-	public static String[] splitText(String[] parags){
+	public static String[] splitText(String parags){
 		
 //		for(int a = 0;a < parags.length;a++){
-			String str = parags[0];
+			String str = parags;
 			ArrayList<String> wordList = new ArrayList<>();
 //			int i = 0, j = 0;
 			
