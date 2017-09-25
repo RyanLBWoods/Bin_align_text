@@ -6,7 +6,8 @@ public class AlignText {
 		try{
 			String[] parags = GetText.readFile(args[0]);
 			int column = Integer.valueOf(args[1]);
-			EditText.editText(parags, column);
+			String[] words = SpiltText.splitText(parags);
+			PrintText.printText(words, column);
 		}catch(ArrayIndexOutOfBoundsException e){
 			System.out.println("usage: java AlignText file_name line_length");
 		}
