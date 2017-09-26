@@ -33,7 +33,7 @@ public class GetText {
 			System.out.println("File not found: " + e.getMessage());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("I/O Ooops: " + e.getMessage());
 		}
 		
 		String[] context = new String[1];

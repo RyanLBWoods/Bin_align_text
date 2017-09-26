@@ -1,7 +1,7 @@
 
 public class PrintText {
 
-	public static void printText(String[] words, int column){
+	public static void printText(String[] words, int column) {
 		
 		int pLength = 0;
 		int remain = column;
@@ -11,14 +11,14 @@ public class PrintText {
 		String[] lines = new String[1000];
 		
 
-		for(int i = 0;i < words.length; i++){
-			if(words[i].length() <= remain && remain != 0){
+		for (int i = 0; i < words.length; i++) {
+			if ((words[i].length() - 1) <= remain && remain != 0) {
 				line = line + words[i];
 //				System.out.print(words[i]);
 				pLength = pLength + words[i].length();
 				remain = column - pLength;
 			}else if(words[i].length() > remain || remain == 0){
-				lines[j] = line + "\n";
+				lines[j] = line.substring(0, line.length() - 1) + "\n";
 				j = j + 1;
 				line = words[i];
 //				System.out.print("\n" + words[i]);
@@ -27,7 +27,7 @@ public class PrintText {
 			}
 		}
 		
-		lines[j] = line + " ";
+		lines[j] = line.substring(0, line.length() - 1) + " ";
 		
 		StringBuffer spaces = new StringBuffer();
 		int k = 0;
@@ -36,7 +36,7 @@ public class PrintText {
 			for(int a = 0;a <= b; a++){
 				spaces.append(" ");
 			}
-			System.out.print(spaces.toString() + lines[k] + "\b");
+			System.out.print(spaces.toString() + lines[k]);
 			spaces = new StringBuffer();
 			k++;
 		}
