@@ -1,7 +1,7 @@
 
 public class PrintText {
 
-	public static void printText(String[] words, int column) {
+	public static void printText(String[] words, int column, char mode) {
 		
 		int pLength = 0;
 		int remain = column;
@@ -10,36 +10,78 @@ public class PrintText {
 		String line = new String();
 		String[] lines = new String[1000];
 		
-
+		//Combine words into line
+		//Store line in a String array called lines
 		for (int i = 0; i < words.length; i++) {
 			if ((words[i].length() - 1) <= remain && remain != 0) {
 				line = line + words[i];
-//				System.out.print(words[i]);
 				pLength = pLength + words[i].length();
 				remain = column - pLength;
 			}else if(words[i].length() > remain || remain == 0){
 				lines[j] = line.substring(0, line.length() - 1) + "\n";
 				j = j + 1;
 				line = words[i];
-//				System.out.print("\n" + words[i]);
 				pLength = words[i].length();
 				remain = column - pLength;
 			}
 		}
 		
-		lines[j] = line.substring(0, line.length() - 1) + " ";
+		//Deal with the last line
+		lines[j] = line.substring(0, line.length() - 1) + "\n";
 		
-		StringBuffer spaces = new StringBuffer();
+//		System.out.println(lines[0].length());
+		//Print context
 		int k = 0;
-		while(lines[k] != null){
-			int b = column - lines[k].length();
-			for(int a = 0;a <= b; a++){
-				spaces.append(" ");
-			}
-			System.out.print(spaces.toString() + lines[k]);
-			spaces = new StringBuffer();
-			k++;
+		int cspace;
+		StringBuffer spaces = new StringBuffer();
+
+		switch(mode){
+			//Right align text
+			case 'R':
+				while(lines[k] != null){
+					int b = column - lines[k].length();
+					for(int a = 0;a <= b; a++){
+						spaces.append(" ");
+					}
+					System.out.print(spaces.toString() + lines[k]);
+					spaces = new StringBuffer();
+					k++;
+				}
+				break;
+			//Left align
+			case 'L':
+				while(lines[k] != null){
+					System.out.print(lines[k]);
+					k++;
+				}
+				break;
+			//Center align text
+			case 'C':
+				while(lines[k] != null){
+					cspace = (column - (lines[k].length() - 1));
+					if(cspace % 2 == 0){
+						cspace = cspace / 2;
+						for(int a = 0;a < cspace; a++){
+							spaces.append(" ");
+						}
+					}else if (cspace == 1){
+						for(int a = 0;a < cspace; a++){
+							spaces.append(" ");
+						}
+					}else if (cspace > 1 && cspace % 2 == 1 ){
+						cspace = cspace / 2 + 1;
+						for(int a = 0;a < cspace; a++){
+							spaces.append(" ");
+						}
+					}
+					
+					System.out.print(spaces.toString() + lines[k]);
+					spaces = new StringBuffer();
+					k++;
+				}
+				break;
 		}
 		System.out.println();
+
 	}
 }

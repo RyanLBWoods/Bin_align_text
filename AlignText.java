@@ -10,21 +10,28 @@ public class AlignText {
 			
 			//Get expected column from user input
 			int column = Integer.valueOf(args[1]);
+			char mode;
+			if(args.length == 2){
+				mode = 'R';
+			}else{
+				mode = args[2].charAt(0);
+			}
+			
 			for (int i = 0; i < parags.length; i++) {
 				//Split words of text
 				String[] words = SpiltText.splitText(parags[i]);
 			
 				//Align text and print according to the input column
-				PrintText.printText(words, column);
+				PrintText.printText(words, column, mode);
 			}
-			
+						
 			
 		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("usage: java AlignText file_name line_length");
+			System.out.println("usage: java AlignText file_name line_length <align_mode>");
 		} catch (NumberFormatException e) {
-			System.out.println("usage: java AlignText file_name line_length");
+			System.out.println("usage: java AlignText file_name line_length <align_mode>");
 		} catch (StringIndexOutOfBoundsException e) {
-			System.out.println("usage: java AlignText file_name line_length");
+			System.out.println("usage: java AlignText file_name line_length <align_mode>");
 		}
 		
 	}
