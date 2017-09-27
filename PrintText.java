@@ -32,7 +32,7 @@ public class PrintText {
 //		System.out.println(lines[0].length());
 		//Print context
 		int k = 0;
-		int cspace;
+		int cspace, jspace;
 		StringBuffer spaces = new StringBuffer();
 
 		switch(mode){
@@ -80,6 +80,35 @@ public class PrintText {
 					k++;
 				}
 				break;
+			//Justify align
+			case 'J':
+				StringBuilder jstr; 
+				while(lines[k] != null){
+					jspace = column - (lines[k].length() - 1);
+					jstr = new StringBuilder(lines[k]);
+					int m = lines[k].length() - 1;
+//					int n = lines[k].length();
+					if(lines[k + 1] == null){
+						System.out.print(lines[k]);
+						break;
+					}else{
+						while(m > 0 && jspace > 0){
+							if(lines[k].charAt(m) == ' '){
+								jstr.insert(m, " ");
+								lines[k] = jstr.toString();
+//								n = lines[k].length();
+								jspace--;
+							}
+							m--;				
+						}
+						
+					}
+					
+					System.out.print(lines[k]);
+					k++;
+				}
+				break;
+				
 		}
 		System.out.println();
 
