@@ -15,9 +15,8 @@ public class GetText {
 	 * Read from the input file name and returns a string array that stores the
 	 * context in the file.
 	 * 
-	 * @param fn
-	 *            file name of the file to read
-	 * @return a string array of the context that was extracted from file
+	 * @param fn File name of the file to read
+	 * @return context A string array of the context that was extracted from file
 	 */
 	public static String[] readFile(String fn) {
 

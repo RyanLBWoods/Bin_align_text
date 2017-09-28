@@ -8,12 +8,9 @@ public class PrintText {
 	/**
 	 * Method for aligning text and print.
 	 * 
-	 * @param words
-	 *            words of the context
-	 * @param column
-	 *            required line length get from input argument
-	 * @param mode
-	 *            required align mode get from input argument
+	 * @param words Words of the context
+	 * @param column Required line length get from input argument
+	 * @param mode Required align mode get from input argument
 	 */
 	public static void printText(String[] words, int column, char mode) {
 

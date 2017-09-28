@@ -8,8 +8,7 @@ public class AlignText {
 	/**
 	 * Main method for text align.
 	 * 
-	 * @param args
-	 *            input arguments
+	 * @param args Input arguments
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -28,9 +27,9 @@ public class AlignText {
 			}
 
 			for (int i = 0; i < parags.length; i++) {
-				// Split words of text
+				// Invoke split function to split words of text
 				String[] words = SpiltText.splitText(parags[i]);
-				// Align text and print according to the input column
+				// Invoke align and print function to align text and print according to the input column
 				PrintText.printText(words, column, mode);
 			}
 

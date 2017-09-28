@@ -11,10 +11,8 @@ public class SpiltText {
 	 * Get each paragraph, split every word and return a string array the stores
 	 * them.
 	 * 
-	 * @param parags
-	 *            paragraph the get from the file
-	 * @return words Return a string array that contains all the words from
-	 *         paragraph
+	 * @param parags Paragraph the get from the file
+	 * @return words Return a string array that contains all the words from paragraph
 	 */
 	public static String[] splitText(String parags) {
 
