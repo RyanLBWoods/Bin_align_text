@@ -82,8 +82,9 @@ public class PrintText {
         case 'C':
             int cspace;
             while (lines[k] != null) {
-                cspace = (column - (lines[k].length() - 1)); // counter for
-                                                            // needed spaces
+                // counter for needed spaces
+                cspace = (column - (lines[k].length() - 1));
+
                 if (cspace % 2 == 0) {
                     // Even number
                     cspace = cspace / 2;
