@@ -59,7 +59,7 @@ public class PrintText {
         // Insert spaces before lines
         case 'R':
             while (lines[k] != null) {
-                int b = column - lines[k].length();// counter for needed spaces
+                int b = column - lines[k].length(); // counter for needed spaces
                 for (int a = 0; a <= b; a++) {
                     spaces.append(" ");
                 }
@@ -82,7 +82,7 @@ public class PrintText {
         case 'C':
             int cspace;
             while (lines[k] != null) {
-                cspace = (column - (lines[k].length() - 1));// counter for
+                cspace = (column - (lines[k].length() - 1)); // counter for
                                                             // needed spaces
                 if (cspace % 2 == 0) {
                     // Even number
