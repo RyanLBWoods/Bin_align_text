@@ -4,6 +4,6 @@ Practice 1 of module CS5001 in University of St Andrews. A small program that re
 # Usage
 The standard input at command line after compile should be "java AlignText file_name line_length <align_mode>" where all of the three arguments should be valid.
 
-Invalid file name or line length will result in print out a error message.
+Invalid file name or line length will result in print out an error message.
 
 The text will be aligned to right in default if no specific align mode is input. The align modes are L for left, C for centre and J for fully justify. R for right is also valid.
