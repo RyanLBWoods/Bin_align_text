@@ -90,12 +90,7 @@ public class PrintText {
                     for (int a = 0; a < cspace; a++) {
                         spaces.append(" ");
                     }
-                } else if (cspace == 1) {
-                    // Only one
-                    for (int a = 0; a < cspace; a++) {
-                        spaces.append(" ");
-                    }
-                } else if (cspace > 1 && cspace % 2 == 1) {
+                } else if (cspace % 2 == 1) {
                     // Odd number
                     cspace = cspace / 2 + 1;
                     for (int a = 0; a < cspace; a++) {
