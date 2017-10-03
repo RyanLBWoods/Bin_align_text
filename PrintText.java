@@ -1,8 +1,8 @@
 /**
- * CS5001 Practice 1 - Align Text.
+ * Methods of align and print text according to the input request.
  * 
  * @author bl41
- * @version 1 Functions of print the aligned text according to the input request
+ * @version 1
  */
 public class PrintText {
     /**
@@ -59,7 +59,7 @@ public class PrintText {
         // Insert spaces before lines
         case 'R':
             while (lines[k] != null) {
-                int b = column - lines[k].length();
+                int b = column - lines[k].length();// counter for needed spaces
                 for (int a = 0; a <= b; a++) {
                     spaces.append(" ");
                 }
@@ -82,17 +82,21 @@ public class PrintText {
         case 'C':
             int cspace;
             while (lines[k] != null) {
-                cspace = (column - (lines[k].length() - 1));
+                cspace = (column - (lines[k].length() - 1));// counter for
+                                                            // needed spaces
                 if (cspace % 2 == 0) {
+                    // Even number
                     cspace = cspace / 2;
                     for (int a = 0; a < cspace; a++) {
                         spaces.append(" ");
                     }
                 } else if (cspace == 1) {
+                    // Only one
                     for (int a = 0; a < cspace; a++) {
                         spaces.append(" ");
                     }
                 } else if (cspace > 1 && cspace % 2 == 1) {
+                    // Odd number
                     cspace = cspace / 2 + 1;
                     for (int a = 0; a < cspace; a++) {
                         spaces.append(" ");
