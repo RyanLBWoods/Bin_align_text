@@ -27,9 +27,7 @@ public class AlignText {
             ArrayList<String> tofile = new ArrayList<String>();
             ArrayList<String> temp = new ArrayList<String>();
             // Initiate file writer
-            FileWriter fw = new FileWriter("new.txt");
-            BufferedWriter bw = new BufferedWriter(fw);
-            
+            String wfname = "";
             char mode;
             // Get expected align mode
             if (args.length == 2) {
@@ -37,7 +35,15 @@ public class AlignText {
             } else {
                 mode = args[2].charAt(0);
             }
-
+            // Get expected file to be written in
+            if(args.length == 4){
+                wfname = args[3];
+            } else {
+                wfname = "new.txt";
+            }
+            FileWriter fw = new FileWriter(wfname);
+            BufferedWriter bw = new BufferedWriter(fw);
+            
             for (int i = 0; i < parags.length; i++) {
                 // Invoke split function to split words of text
                 String[] words = SpiltText.splitText(parags[i]);
