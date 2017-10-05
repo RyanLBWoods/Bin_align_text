@@ -26,10 +26,10 @@ public class AlignText {
             int column = Integer.valueOf(args[1]);
             ArrayList<String> tofile = new ArrayList<String>();
             ArrayList<String> temp = new ArrayList<String>();
-
-            FileWriter fw = new FileWriter("test.txt");
+            // Initiate file writer
+            FileWriter fw = new FileWriter("new.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            // String[] alignedTx = new String[];
+            
             char mode;
             // Get expected align mode
             if (args.length == 2) {
@@ -47,24 +47,22 @@ public class AlignText {
                 String[] alignedTx = PrintText.printText(words, column, mode);
                 for (int j = 0; j < alignedTx.length; j++) {
                     tofile.add(alignedTx[j]);
-                    // System.out.print(tofile.get(j).toString());
                 }
-                // tofile.add(PrintText.printText(words, column, mode));
             }
-            // tofile.remove(null);
+            // Get rid of all null node in the array list
             for (int m = 0; m < tofile.size(); m++) {
                 if (tofile.get(m) != null) {
                     temp.add(tofile.get(m));
                 }
             }
             tofile = temp;
-
+            //Write into file
             for (int n = 0; n < tofile.size(); n++) {
                 bw.write(tofile.get(n).toString());
                 bw.flush();
             }
             bw.close();
-            // System.out.print(tofile.toString());
+
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("usage: java AlignText file_name line_length <align_mode>");
             System.exit(0);

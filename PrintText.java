@@ -63,7 +63,6 @@ public class PrintText {
                 for (int a = 0; a <= b; a++) {
                     spaces.append(" ");
                 }
-                // tolines.add(spaces.toString() + lines[k]);
                 lines[k] = spaces.toString() + lines[k];
                 System.out.print(lines[k]);
                 spaces = new StringBuffer();
@@ -74,7 +73,6 @@ public class PrintText {
         // Directly print lines
         case 'L':
             while (lines[k] != null) {
-                // tolines.add(lines[k]);
                 System.out.print(lines[k]);
                 k++;
             }
@@ -101,7 +99,6 @@ public class PrintText {
                         spaces.append(" ");
                     }
                 }
-                // tolines.add(spaces.toString() + lines[k]);
                 lines[k] = spaces.toString() + lines[k];
                 System.out.print(lines[k]);
                 spaces = new StringBuffer();
@@ -117,7 +114,6 @@ public class PrintText {
             while (lines[k] != null) {
                 // If it is the last line, print it directly
                 if (lines[k + 1] == null) {
-                    // tolines.add(lines[k]);
                     System.out.print(lines[k]);
                     break;
                 }
@@ -157,7 +153,6 @@ public class PrintText {
                         m--;
                     }
                 }
-                // tolines.add(lines[k]);
                 System.out.print(lines[k]);
                 k++;
             }
