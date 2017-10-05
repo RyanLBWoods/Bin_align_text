@@ -1,4 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * CS5001 Practice 1 - Align Text.
@@ -12,9 +15,8 @@ public class AlignText {
      * 
      * @param args
      *            Input arguments
-     * @throws IOException 
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         // TODO Auto-generated method stub
         try {
 
@@ -22,6 +24,12 @@ public class AlignText {
             String[] parags = GetText.readFile(args[0]);
             // Get expected column from user input
             int column = Integer.valueOf(args[1]);
+            ArrayList<String> tofile = new ArrayList<String>();
+            ArrayList<String> temp = new ArrayList<String>();
+
+            FileWriter fw = new FileWriter("test.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            // String[] alignedTx = new String[];
             char mode;
             // Get expected align mode
             if (args.length == 2) {
@@ -35,9 +43,28 @@ public class AlignText {
                 String[] words = SpiltText.splitText(parags[i]);
                 // Invoke align and print function to align text and print
                 // according to the input column
-                PrintText.printText(words, column, mode);
-            }
 
+                String[] alignedTx = PrintText.printText(words, column, mode);
+                for (int j = 0; j < alignedTx.length; j++) {
+                    tofile.add(alignedTx[j]);
+                    // System.out.print(tofile.get(j).toString());
+                }
+                // tofile.add(PrintText.printText(words, column, mode));
+            }
+            // tofile.remove(null);
+            for (int m = 0; m < tofile.size(); m++) {
+                if (tofile.get(m) != null) {
+                    temp.add(tofile.get(m));
+                }
+            }
+            tofile = temp;
+
+            for (int n = 0; n < tofile.size(); n++) {
+                bw.write(tofile.get(n).toString());
+                bw.flush();
+            }
+            bw.close();
+            // System.out.print(tofile.toString());
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("usage: java AlignText file_name line_length <align_mode>");
             System.exit(0);
@@ -46,6 +73,9 @@ public class AlignText {
             System.exit(0);
         } catch (StringIndexOutOfBoundsException e) {
             System.out.println("usage: java AlignText file_name line_length <align_mode>");
+            System.exit(0);
+        } catch (IOException e) {
+            System.out.println("I/O Ooops: " + e.getMessage());
             System.exit(0);
         }
 

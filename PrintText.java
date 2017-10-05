@@ -1,8 +1,3 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-
 /**
  * Methods of align and print text according to the input request.
  * 
@@ -19,9 +14,9 @@ public class PrintText {
      *            Required line length get from input argument
      * @param mode
      *            Required align mode get from input argument
-     * @throws IOException 
+     * @return lines Return an array of string that contains the align text
      */
-    public static void printText(String[] words, int column, char mode) throws IOException {
+    public static String[] printText(String[] words, int column, char mode) {
 
         int pLength = 0; // printed length
         int remain = column; // remain length in line
@@ -54,9 +49,6 @@ public class PrintText {
         int k = 0;
         // A string buffer for spaces that are needed to insert
         StringBuffer spaces = new StringBuffer();
-        FileWriter fw = new FileWriter("new.txt");
-        BufferedWriter bw = new BufferedWriter(fw);
-        ArrayList<String> tofile = new ArrayList<String>();
         // Print output
         switch (mode) {
         // Invalid mode input
@@ -71,31 +63,22 @@ public class PrintText {
                 for (int a = 0; a <= b; a++) {
                     spaces.append(" ");
                 }
-                tofile.add(spaces.toString() + lines[k]);
-                System.out.print(spaces.toString() + lines[k]);
+                // tolines.add(spaces.toString() + lines[k]);
+                lines[k] = spaces.toString() + lines[k];
+                System.out.print(lines[k]);
                 spaces = new StringBuffer();
                 k++;
             }
-            for(int n = 0;n < tofile.size();n++){
-                bw.write(tofile.get(n).toString());
-                bw.flush();
-            }
-            bw.close();
-            break;
+            return lines;
         // Left align
         // Directly print lines
         case 'L':
             while (lines[k] != null) {
-                tofile.add(lines[k]);
+                // tolines.add(lines[k]);
                 System.out.print(lines[k]);
                 k++;
             }
-            for(int n = 0;n < tofile.size();n++){
-                bw.write(tofile.get(n).toString());
-                bw.flush();
-            }
-            bw.close();
-            break;
+            return lines;
         // Centre align text
         // Insert half of needed spaces in front of lines
         // Insert n/2 + 1 if odd number needed spaces
@@ -118,27 +101,23 @@ public class PrintText {
                         spaces.append(" ");
                     }
                 }
-                tofile.add(spaces.toString() + lines[k]);
-                System.out.print(spaces.toString() + lines[k]);
+                // tolines.add(spaces.toString() + lines[k]);
+                lines[k] = spaces.toString() + lines[k];
+                System.out.print(lines[k]);
                 spaces = new StringBuffer();
                 k++;
             }
-            for(int n = 0;n < tofile.size();n++){
-                bw.write(tofile.get(n).toString());
-                bw.flush();
-            }
-            bw.close();
-            break;
+            return lines;
         // Justify align
         // Insert spaces back words per existed spaces
         case 'J':
             StringBuilder jstr;
             int jspace;
-            
+
             while (lines[k] != null) {
                 // If it is the last line, print it directly
                 if (lines[k + 1] == null) {
-                    tofile.add(lines[k]);
+                    // tolines.add(lines[k]);
                     System.out.print(lines[k]);
                     break;
                 }
@@ -178,19 +157,14 @@ public class PrintText {
                         m--;
                     }
                 }
-                tofile.add(lines[k]);
+                // tolines.add(lines[k]);
                 System.out.print(lines[k]);
                 k++;
             }
-            
-            for(int n = 0; n < tofile.size();n++){
-                bw.write(tofile.get(n).toString());
-                bw.flush();
-            }
-            bw.close();
-            break;
+            return lines;
         }
         System.out.println();
+        return null;
 
     }
 }
