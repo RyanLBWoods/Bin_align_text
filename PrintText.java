@@ -24,6 +24,7 @@ public class PrintText {
 
         String line = new String(); // line to store the executed words
         // String array to store executed line
+        // Set the length to maximum which is the total number of words
         String[] lines = new String[words.length];
 
         // Combine words into line
