@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /**
  * CS5001 Practice 1 - Align Text.
  * 
@@ -10,8 +12,9 @@ public class AlignText {
      * 
      * @param args
      *            Input arguments
+     * @throws IOException 
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO Auto-generated method stub
         try {
 
